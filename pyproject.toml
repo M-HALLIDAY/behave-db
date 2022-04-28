@@ -20,15 +20,20 @@ repository = "https://github.com/halliday-M/behave-db"
 readme = "README.md"
 
 
+#[[tool.poetry.source]]
+#name = "tsinghua"
+#url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+#default = true
+
 
 [tool.poetry.dependencies]
-python = "^2.7 ||^3.7 || ^3.8"
+python = "^2.7 ||^3.7"
 behave = "^1.2.6"
-jaydebeapi
+JayDeBeApi = "^1.2.3"
 
 
 [tool.poetry.dev-dependencies]
-flake8 = "^4.0.1"
+flake8 = "*"
 
 
 [build-system]
