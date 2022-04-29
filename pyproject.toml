@@ -16,14 +16,14 @@ classifiers = [
     "Programming Language :: Python :: 3"
 ]
 keywords = ["BDD", "Behavior-Driven-Development", "DB"]
-repository = "https://github.com/halliday-M/behave-db"
+repository = "https://github.com/M-halliday/behave-db"
 readme = "README.md"
 
 
-#[[tool.poetry.source]]
-#name = "tsinghua"
-#url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-#default = true
+[[tool.poetry.source]]
+name = "tsinghua"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+default = true
 
 
 [tool.poetry.dependencies]
