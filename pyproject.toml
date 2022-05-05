@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "behave-db"
-version = "0.0.1"
+version = "0.0.2"
 description = "BDD DB steps implementation for Behave"
 authors = ["zmr <zmr_01@126.com>"]
 license = "BSD"
@@ -30,7 +30,7 @@ default = true
 python = "^2.7 ||^3.7"
 behave = "^1.2.6"
 JayDeBeApi = "^1.2.3"
-
+Jinja2 = "^2.5"
 
 [tool.poetry.dev-dependencies]
 flake8 = "*"
