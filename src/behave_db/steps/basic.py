@@ -1,9 +1,10 @@
+# -*- coding: UTF-8 -*-  
 from __future__ import unicode_literals
 import time
 import jaydebeapi
 
 from behave import step
-from behave_http.utils import db_config_vars
+from behave_db.utils import db_config_vars
 
 
 
@@ -27,7 +28,6 @@ def close_connect_db(context):
 
 
 @step(u'I wait for {timeout:d} seconds')
-@db_config_vars
 def wait_for_timeout(context, timeout):
     time.sleep(timeout)
 
