@@ -14,6 +14,8 @@ def before_all(context):
     config_datas['driver_name'] = "org.relique.jdbc.csv.CsvDriver"
     config_datas['driver_jar_path'] = os.path.join(data_dir,"drivers","csvjdbc-1.0-37.jar")
     config_datas['csv_jdbc_url'] = "jdbc:relique:csv:" + data_dir
+    config_datas['db_user'] = None
+    config_datas['db_password'] = None
     #copy var to behave_db
     benv.before_all(context)
     context.db_config = config_datas

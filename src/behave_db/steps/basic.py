@@ -15,27 +15,33 @@ def conn_to_databases(context, db_user, db_password, jdbc_url):
     # get driver_name and jar by db_config
     driver_name = context.db_config["driver_name"]
     driver_jar_path =  context.db_config["driver_jar_path"]
+    OAuth = return_OAuth(context, db_user, db_password)
     #conn to db by jaydebeapi
     context.conn = jaydebeapi.connect(driver_name,
                               jdbc_url,
-                              [db_user, str(db_password)],
+                              OAuth,
                               driver_jar_path)
 
 
 @step(u'I connect to db with json')
-def conn_to_databases(context):
+@db_config_vars
+def conn_to_databases_with_json(context):
     # get driver_name and jar from context.text
     text_datas = json.loads(context.text)
-    # sqlite/csv need't password, process user and password
-    OAuth = [text_datas["db_user"],str(text_datas["db_password"])]
-    if not text_datas["db_user"] and\
-            not text_datas["db_password"]:
-        OAuth = None
+    OAuth = return_OAuth(context, text_datas["db_user"], text_datas["db_password"])
     #conn to db by jaydebeapi
     context.conn = jaydebeapi.connect(text_datas["driver_name"],
                               text_datas["jdbc_url"],
                               OAuth,
                               text_datas["driver_jar_path"])
+
+
+def return_OAuth(context, username, passwd):
+    # sqlite/csv need't password, process user and password
+    OAuth = [username,passwd]
+    if not username and not passwd:
+        OAuth = None
+    return OAuth
 
 
 @step(u'I close the connect')
@@ -45,6 +51,7 @@ def close_connect_db(context):
 
 
 @step(u'I wait for {timeout:d} seconds')
+@db_config_vars
 def wait_for_timeout(context, timeout):
     time.sleep(timeout)
 

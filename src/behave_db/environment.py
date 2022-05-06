@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-  
 def before_all(context):
-    # Seed empty Jinja2 template data so steps do not need to check and create.
+    # Seed empty data so steps do not need to check and create.
     context.db_config = {}
 
