@@ -11,14 +11,14 @@ from behave_db.utils import db_config_vars
 @step(u'I connect to db "{jdbc_url}" with user "{db_user}" and password "{db_password}"')
 @db_config_vars
 def conn_to_databases(context, db_user, db_password, jdbc_url):
-    # get driver_name and jar 
+    # get driver_name and jar by db_config
     driver_name = context.db_config["driver_name"]
-    driver_jar =  context.db_config["driver_jar"]
+    driver_jar_path =  context.db_config["driver_jar_path"]
     #conn to db by jaydebeapi
     context.conn = jaydebeapi.connect(driver_name,
                               jdbc_url,
                               [db_user, str(db_password)],
-                              driver_jar)
+                              driver_jar_path)
 
 
 @step(u'I close the connect')
@@ -51,3 +51,4 @@ def result_is_not_null(context, result):
 @db_config_vars
 def result_is_null(context, result):
     assert result is None, u'The result is not null'
+
