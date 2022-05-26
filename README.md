@@ -104,14 +104,18 @@ Took 0m1.797s
 
 ```
 
+## TODO
+1. drop、delete、insert... or other common steps
+2. build on docker
+
+
+
 ## other tools on behave
 
 *web application testing*
-
 [behaving](https://github.com/ggozad/behaving)
 
 *api testing*
-
 [behave-http](https://github.com/mikek/behave-http)
 
 
