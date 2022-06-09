@@ -38,7 +38,7 @@ def conn_to_databases_with_json(context):
 
 def return_OAuth(context, username, passwd):
     # sqlite/csv need't password, process user and password
-    OAuth = [username,passwd]
+    OAuth = [str(username),str(passwd)]
     if not username and not passwd:
         OAuth = None
     return OAuth
